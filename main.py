@@ -8,6 +8,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters.state import  StateFilter
 from users_states import UserStates
 
+from keyboard_helper import get_keyboard
+
 
 storage = MemoryStorage()
 Bot = Bot(token=TOKEN)
@@ -15,7 +17,8 @@ dp = Dispatcher(storage=storage)
 
 @dp.message(Command('start'))
 async def start(message: types.Message, state: FSMContext):
-    await message.answer('Привет! я пари-бот')
+    kb = get_keyboard(['/test'])
+    await message.answer('Привет! я пари-бот', reply_markup=kb)
     await state.set_state(UserStates.BASE)
 
 @dp.message(Command('test'), StateFilter(UserStates.BASE))
