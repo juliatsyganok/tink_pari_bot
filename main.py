@@ -6,7 +6,7 @@ from aiogram import F
 
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.filters.state import  StateFilter
+from aiogram.filters.state import StateFilter
 from users_states import UserStates
 
 from keyboard_helper import get_keyboard, keyboards
